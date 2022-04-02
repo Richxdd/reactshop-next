@@ -1,0 +1,33 @@
+@import 'vars';
+
+.ProductDetail {
+  width: 360px;
+  padding-bottom: 24px;
+  top: 61px;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+  background: white;
+  height: 100%;
+}
+
+.ProductDetail__close {
+  background: $--white;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 2;
+  padding: 12px;
+  border-radius: 50%;
+}
+.ProductDetail__close:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .ProductDetail {
+    width: 100%;
+  }
+}

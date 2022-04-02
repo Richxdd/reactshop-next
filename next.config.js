@@ -1,6 +1,19 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  env: {
+    customKey: 'customValue',
+  },
+  images: {
+    domains: ['placeimg.com'],
+  },
+  compress: true,
+  async redirets() {
+    return [
+      {
+        source: '/*',
+        destination: '/',
+        premanent: true,
+      },
+    ];
+  },
+};

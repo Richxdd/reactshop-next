@@ -1,0 +1,49 @@
+@import 'vars';
+
+.android__menu {
+  left: 0;
+  padding: 24px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+  top: 60px;
+}
+.android__menu a {
+  text-decoration: none;
+  color: $--black;
+  font-weight: bold;
+}
+.android__menu ul {
+  padding: 0;
+  margin: 24px 0 0;
+  list-style: none;
+}
+.android__menu ul:nth-child(1) {
+  border-bottom: 1px solid $--very-light-pink;
+}
+.android__menu ul:nth-child(3) {
+  margin-bottom: 35px;
+}
+.android__menu ul li {
+  margin-bottom: 24px;
+}
+.email {
+  font-size: $--sm;
+  font-weight: 300 !important;
+}
+.sign__out {
+  font-size: $--sm;
+  color: $--hospital-green !important;
+}
+
+@media (max-width: 640px) {
+  .android__menu {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
+    width: 100%;
+  }
+}
