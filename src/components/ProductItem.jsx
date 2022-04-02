@@ -27,9 +27,9 @@ const ProductItem = ({ product }) => {
             </div>
             <figure className={styles.add} onClick={() => handleClick(product)}>
               {state.cart.includes(product) ? (
-                <img className={[styles.disabled, styles['add-to-cart-btn']]} src={addedToCartImage} alt="added to cart" />
+                <img className={[styles.disabled, styles['add-to-cart-btn']]} src={addedToCartImage.src} alt="added to cart" />
               ) : (
-                <img className={[styles.pointer, styles['add-to-cart-btn']]} src={addToCartImage} alt="add to cart" />
+                <img className={[styles.pointer, styles['add-to-cart-btn']]} src={addToCartImage.src} alt="add to cart" />
               )}
             </figure>
           </div>
