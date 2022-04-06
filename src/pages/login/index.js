@@ -1,14 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import styles from '@styles/Login.module.scss';
 import logo from '@logos/logo_yard_sale.svg';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import axios from 'axios';
+import { signIn, useSession } from 'next-auth/react';
 
 const Login = () => {
-  let navigate = useRouter();
+  const navigate = useRouter();
+  const { data: session, status } = useSession();
   const [Incorrecta, setIncorrecta] = useState('');
-
   const form = useRef(null);
 
   const handleSubmit = async (e) => {
@@ -19,35 +20,19 @@ const Login = () => {
       password: formData.get('password'),
     };
 
-    try {
-      const API = 'https://tranquil-ravine-83407.herokuapp.com/api/v1/auth/login';
-      // const respuesta = await fetch(API, {
-      //   method: "POST",
-      //   body: JSON.stringify(datos),
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      // })
-      // console.log(respuesta)
-      // const resultado = await respuesta.json()
-      // console.log(resultado)
-      // if (respuesta.status === 200) {
-      //   navigate.push("/")
-      // } else {
-      //   setIncorrecta("Contraseña Incorrecta")
-      // }
-
-      await axios({
-        method: 'post',
-        url: API,
-        data: datos,
-      });
-      navigate.push('/');
-    } catch (error) {
-      setIncorrecta('Contraseña Incorrecta');
-      console.log(error);
-    }
+    await signIn('credentials', {
+      redirect: false,
+      email: datos.email,
+      password: datos.password,
+    }).then((res) => (res.ok ? navigate.push('/') : setIncorrecta('Contraseña Incorrecta')));
   };
+
+  useEffect(() => {
+    if (status !== 'loading' && status === 'authenticated') {
+      console.log(status);
+      navigate.push('/');
+    }
+  }, [status]);
 
   return (
     <div className={styles.Login}>

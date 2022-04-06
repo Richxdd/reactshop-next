@@ -31,6 +31,7 @@
 .Menu ul li:last-child a {
   color: $--hospital-green;
   font-size: $--sm;
+  cursor: pointer;
 }
 .Menu ul li a {
   color: $--black;

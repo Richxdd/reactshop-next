@@ -17,7 +17,7 @@ const ProductItem = ({ product }) => {
 
   return (
     <>
-      {product.images[0] !== '' ? (
+      {product.images[0] ? (
         <div className={styles.ProductItem}>
           <img src={product.images[0]} className={styles.image} alt={product.title} onClick={() => handleClickImage(product)} />
           <div className={styles['product-info']}>

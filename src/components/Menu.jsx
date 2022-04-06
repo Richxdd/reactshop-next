@@ -1,8 +1,12 @@
 import React from 'react';
 import styles from '@styles/Menu.module.scss';
 import Link from 'next/link';
-
+import { signOut } from 'next-auth/react';
 const Menu = () => {
+  const handleSignOut = async () => {
+    await signOut({ redirect: true, callbackUrl: '/login' });
+  };
+
   return (
     <div className={styles.Menu}>
       <ul className="">
@@ -15,7 +19,7 @@ const Menu = () => {
           <Link href="/account">Mi Cuenta</Link>
         </li>
         <li>
-          <Link href="/login">Cerrar Sesión</Link>
+          <a onClick={handleSignOut}>Cerrar Sesión</a>
         </li>
       </ul>
     </div>

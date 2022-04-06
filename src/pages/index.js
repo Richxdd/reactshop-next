@@ -5,6 +5,7 @@ import AppContext from '@context/AppContext';
 
 export default function Home() {
   const { state } = useContext(AppContext);
+
   return (
     <>
       {state.detailIsOpen && <ProductDetail />}
