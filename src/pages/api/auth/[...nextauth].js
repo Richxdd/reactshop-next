@@ -14,7 +14,7 @@ export default NextAuth({
         email: { label: 'Username', type: 'text', placeholder: 'jsmith' },
         password: { label: 'Password', type: 'password' },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const res = await fetch('https://tranquil-ravine-83407.herokuapp.com/api/v1/auth/login', {
           method: 'POST',
           body: JSON.stringify(credentials),

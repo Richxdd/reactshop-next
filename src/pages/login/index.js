@@ -3,12 +3,12 @@ import styles from '@styles/Login.module.scss';
 import logo from '@logos/logo_yard_sale.svg';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import axios from 'axios';
+// import axios from 'axios';
 import { signIn, useSession } from 'next-auth/react';
 
 const Login = () => {
   const navigate = useRouter();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const [Incorrecta, setIncorrecta] = useState('');
   const form = useRef(null);
 
