@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import styles from '@styles/NewPassword.module.scss';
 import logo from '@logos/logo_yard_sale.svg';
 import { useRouter } from 'next/router';
