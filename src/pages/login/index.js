@@ -49,11 +49,11 @@ const Login = () => {
             Contraseña
           </label>
           <input type="password" name="password" placeholder="*********" className={`${styles.input} ${styles.input__password}`} />
-          <Link href="/">
-            <button onClick={handleSubmit} className={`${styles.primary__button} ${styles.login__button}`}>
-              Iniciar sesión
-            </button>
-          </Link>
+
+          <button onClick={handleSubmit} className={`${styles.primary__button} ${styles.login__button}`}>
+            Iniciar sesión
+          </button>
+
           <Link href="/password-recovery">Olvidé mi contraseña</Link>
         </form>
         <Link href="/signup">
